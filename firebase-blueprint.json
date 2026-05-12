@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user preferences and basic info",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "preferences": { 
+          "type": "object",
+          "properties": {
+            "cuisine": { "type": "array", "items": { "type": "string" } },
+            "diet": { "type": "string" },
+            "difficulty": { "type": "string" }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Ingredient": {
+      "title": "Inventory Item",
+      "description": "An ingredient in the user's kitchen",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "quantity": { "type": "string" },
+        "expiryDate": { "type": "string", "format": "date-time" },
+        "addedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "addedAt"]
+    },
+    "Recipe": {
+      "title": "Recipe",
+      "description": "A generated or saved recipe",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "ingredients": { "type": "array", "items": { "type": "object" } },
+        "instructions": { "type": "array", "items": { "type": "string" } },
+        "cuisine": { "type": "string" },
+        "nutrition": { "type": "object" },
+        "generatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiling and settings"
+    },
+    "/users/{userId}/inventory/{ingredientId}": {
+      "schema": "Ingredient",
+      "description": "User's current stock"
+    },
+    "/users/{userId}/history/{recipeId}": {
+      "schema": "Recipe",
+      "description": "Generated recipe history"
+    }
+  }
+}

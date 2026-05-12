@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-saffron: #f97316; /* orange-500 */
+  --color-turmeric: #fbbf24; /* amber-400 */
+  --color-earth-green: #22c55e; /* green-500 */
+  --color-spice-red: #ef4444; /* red-500 */
+  --color-premium-cream: #FFFBF0;
+  --color-warm-accent: #FFF5E6;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-premium-cream text-stone-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.indian-gradient {
+  background: linear-gradient(135deg, var(--color-saffron) 0%, var(--color-turmeric) 100%);
+}
+
+.vibrant-bg {
+  @apply bg-gradient-to-br from-premium-cream to-warm-accent;
+}
+
+.glass-card {
+  @apply bg-white rounded-3xl shadow-sm border border-orange-50/50;
+}

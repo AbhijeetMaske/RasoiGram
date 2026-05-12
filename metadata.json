@@ -1,0 +1,6 @@
+{
+  "name": "RasoiGram",
+  "description": "An intelligent AI-powered meal planning and grocery assistant for Indian households.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["AI Recipe Generation", "Image Recognition", "Weekly Meal Planner", "Smart Grocery List"]
+}
